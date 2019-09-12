@@ -6,10 +6,11 @@
 
 <mapper namespace="login">
 
-<select id="time" resultType="java.lang.String">   
+	<select id="login" resultType="UserVO">
+		select * from tbl_user
+		where userId = #{userid}
+		and userPw = #{userpw}
+	</select>
 
-	SELECT now()
-
-</select>
 
 </mapper> 
