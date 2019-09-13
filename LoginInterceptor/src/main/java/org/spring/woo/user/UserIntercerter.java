@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class UserInercerter extends HandlerInterceptorAdapter{
+public class UserIntercerter extends HandlerInterceptorAdapter{
 
     // preHandle() : 컨트롤러보다 먼저 수행되는 메서드
     @Override
