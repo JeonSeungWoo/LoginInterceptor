@@ -1,0 +1,249 @@
+/* 디버그 */
+.border_red { border: solid 1px red; }
+.border_blue { border: solid 1px blue; }
+.border_yellow { border:solid 3px yellow; }
+.border_green { border:solid 1px green; }
+
+
+/* 테스트 */
+.t_box_login { }
+.t_box_login > div { position: relative; }
+.t_box_1 { width: 300px; height: 200px;}
+.t_box_2 { width: 300px; }
+.t_box_2 > div { position: relative; }
+.t_box_title { height: 50px; width: 100%; }
+
+/* 공통 */
+.xyCenter { 
+    position: absolute !important; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+    -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); 
+    -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%);
+}
+.xyCenter_for_loginbox { 
+    position: absolute !important; top: 43%; left: 50%; transform: translate(-50%, -50%); 
+    -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); 
+    -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%);
+}
+.xyCenter_for_pwbox { 
+    position: absolute !important; top: 47%; left: 50%; transform: translate(-50%, -50%); 
+    -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); 
+    -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%);
+}
+
+.yCenter { 
+    position: absolute !important; top: 50%; transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%); -moz-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%); -o-transform: translate(0%, -50%);
+}
+.xCenter { 
+    position: absolute !important; left: 50% !important; transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%); -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%); -o-transform: translate(-50%, 0%);
+}
+
+@font-face { font-family: 'NanumGothic'; src: url("../font/NanumGothic.woff") format('woff'), url("../font/NanumGothic.ttf") format('truetype'); font-weight: bold; }
+
+
+body{font-family: 'NanumGothic', sans-serif;}
+.displayNone {display: none;}
+
+.frame {position: relative; width: 100%; height: 100%; }
+.frame_sub {width: 100%; /*max-width: 1920px;*/ min-width: 1210px;} /* min-width: 1210px; 1366px 에서 수정 */
+
+
+
+/* login */
+.login_box {width:470px}
+.logo {height:150px;text-align:center;margin-bottom:20px}
+.logo > img {width:150px; height:150px;position: relative;}
+.login_box .login_boxline {border:solid 1px #d8d8d8; border-radius:8px;position:relative;}
+.login_boxline > .title_box {height:90px;position:relative;margin-top:20px;margin-bottom:10px;}
+.login_boxline input {font-size: 13px;}
+.login_title {width:245px;height:38px;font-size:27px;color:#666666;position:relative;}
+.login_title > div {float: left;position: relative;}
+.login_title .padding {width: 30px;height: 100%;}
+.login_title_text {width: 210px;height:100%;text-align:center;}
+.login_title_text > div {width: 210px;height: 27px;}
+.informationbox {height:50px;position:relative;margin:10px 0px 10px}
+.information {width:300px;height:45px;background-color:#f7f7f7;border-radius:5px;text-align: center;color:#fb0606;font-size:15px}
+.information_text {width: 100%;}
+.textbox, .pswbox {height:45px;position:relative;margin-bottom:10px;}
+input[type=text], input[type=password] {width:300px;height:45px;border: 1px solid #ccc;border-radius:5px;padding-left:15px;}
+.login_linebox {height:50px;position:relative}
+.login_line {width:300px;border:solid 0.5px #d8d8d8;}
+
+
+.loginbutton_box {height:50px;position: relative}
+.loginbutton {width:300px;height:50px;background-color: #0a7ac2;color: white;border:none;cursor: pointer;border-radius:5px;font-size:20px;}
+.linebox {height:50px;position:relative}
+.line {width:300px;border:solid 0.5px #d8d8d8;}
+.others_button {height:40px;position:relative;text-align: center;margin-bottom:45px;}
+.others_button > button {width:143px;height:40px;background-color:#033965;color: white;border:none;cursor: pointer;border-radius:5px;font-size:16px;}
+.others_button > button.left {margin-right:10px;}
+
+
+
+/* repw */
+.pw_box {width:470px}
+.pw_box .pw_boxline {border:solid 1px #d8d8d8; border-radius:8px;position: relative;}
+.pw_boxline input {font-size:13px;}
+.pw_title_box {height:80px;position:relative;margin-top:20px}
+.pw_title_box > .help_icon {position:absolute;right:20px;border:none;cursor: pointer;}
+.pw_title {font-size:27px;color:#666666}
+.pw_informationbox {height:80px;position:relative;margin-bottom:10px}
+.pw_information {width:280px;text-align:left;color:#fb0606;font-size:12px;}
+.pw_informationbox2 {height:50px;position:relative;margin-bottom:10px}
+.pw_information2 {width:300px;height:45px;background-color:#f7f7f7;border-radius:5px;text-align: center;color:#fb0606;font-size:13px}
+.pw_information2 > .pw_information_text {width:100%}
+.psw_checkbox {position:relative;text-align:center;}
+.pw_linebox {height:50px;position:relative}
+.pw_line {width:300px;border:solid 0.5px #d8d8d8;}
+.pw_buttonbox{height:90px;position:relative;margin-bottom:35px}
+.pw_button {height:90px}
+.pw_button > button {height:40px;width:300px;color:white;border:none;cursor:pointer;border-radius:5px;font-size:20px;}
+.pw_button > .change {background-color:#01386e;margin-bottom:10px;}
+.pw_button > .cancel {background-color:#0a7ac2;}
+
+
+/* main */
+
+    /* 상단 메뉴 */
+.frame_sub.header {height:95px; z-index: 2;}
+.frame_sub.header > div {position: relative;z-index:2}
+.frame_sub.header .box_menu_sub {height: 30%;background-color:#01386e}
+.frame_sub.header .box_menu {height: 70%;background-color:white;border-bottom:solid 1px #b8c4cc}
+.box_menu_sub > .gnb_wrap {width:500px;position: absolute;right:0px;}
+.box_menu_sub > .gnb_wrap > div {width:100px;float:left;color:white;font-size:13px;text-align:center;font-weight:100;margin-right:10px;cursor: pointer}
+.box_menu_sub > .gnb_wrap > .id {width:110px;;text-align:left}
+        /* 로고, 메인 메뉴들 */
+.frame_sub.header .box_menu > div {position:relative;float:left;}
+.frame_sub.header .main_logo {width: 250px; height:100%;position: relative;z-index:2}
+.frame_sub.header .menu {height:100%;}
+.frame_sub.header .menu > div { position:relative; float:left; width: 110px; height: 100%;}
+.frame_sub.header .menu > div > div {width:100%;text-align:left;font-size:16px;color:#333333;cursor:pointer;padding-left:10px}
+.frame_sub.header .menu > div > .line {width:50px;border:solid 1px #01386e;border-radius:1px;position:absolute;bottom:0px;left:0px}
+.frame_sub.header .menu > div > .line2 {width:75px;border:solid 1px #01386e;border-radius:1px;position:absolute;bottom:0px;left:0px}
+.frame_sub.header .menu > div > .line3 {width:92px;border:solid 1px #01386e;border-radius:1px;position:absolute;bottom:0px;left:0px}
+.frame_sub.header .menu > div > .line4 {width:106px;border:solid 1px #01386e;border-radius:1px;position:absolute;bottom:0px;left:0px}
+.line,.line2,.line3,.line4  {display: none}
+.line.on,.line2.on,.line3.on,.line4.on {display: block;}
+
+.frame_sub.header .menu > .deps1_5, .deps1_6{margin-right:40px}
+.frame_sub.header .menu > .deps1_7 {margin-left:15px}
+.frame_sub.header .menu > .deps1_3 {margin-right:25px}
+.frame_sub.header .menu > .deps1_4 > div {padding-left:10px}
+.box_menu > .main_logo > img{width:55px;height:55px}
+            /* 중메뉴 */
+.frame_sub.header .menubg_box {width:100%;height:250px;position:absolute;top:1px;}
+.frame_sub.header .menubg_box > .menu_children { position: absolute !important; top:0px; left: 233px;right: 0;background-color:#fcfcfc;padding-bottom:90px;z-index:3} /*width를 left, right로 잡음*/
+.menubg_box > .menu_bg1 {width:233px;height:250px;background-color:#01386e;float:left;position:absolute;left:0px;overflow:hidden;}
+
+
+.menubg_box > .menu_bg2 {height:250px;position:absolute;left:233px;right: 0;background-color:#01386e;overflow:hidden}/*width를 left, right로 잡음*/
+.menubg_box {display:none}
+.menubg_box.on {display:block}
+
+.frame_sub.header .menu_children > div {position: relative; float: left; width:200px;padding-top:30px;text-align:left;padding-left:40px;font-size:16px;color:#333333;font-weight:400}
+.frame_sub.header .menu_children > div > .deps2 {width:135px;height:30px;background-color:#01386e;border-top-left-radius:10px;color: white;text-align: center;position: relative;cursor: pointer}
+.frame_sub.header .menu_children > div > .deps2 > .deps2_text {font-size:15px}
+.frame_sub.header .menu_children > div > div > div {width:100%;line-height:25px}
+.frame_sub.header .menu_children > div > .deps3 {margin-top:10px;font-size:13px;line-height:20px;cursor:pointer}
+
+.screen_set button {width:50px;height:30px;border:none;border-radius:5px;position:relative;top:-3px;background-color:#fcfcfc;;color:#cfcfcf;border:solid 1px #52cfcb;margin-top:15px;cursor:pointer}
+
+.screen_set .on {background-color:#52cfcb;color: white;font-weight:bold;margin-right:5px;margin-left:5px}
+
+
+
+    /* 맵 부분 */
+.frame_sub.contents {top:95px;bottom: 0;position: absolute; z-index: 1;}/* ! position: aboslute로 수정 - 원래 줘야 높이가 늘어나는데 빼놓음 */
+.frame_sub.contents > div {position: absolute;top: 0px;bottom: 0; }/* ! top 0으로 수정 - 위 속성 수정으로 반드시 수정되어야하는 부분 */
+        /* 왼쪽 메뉴 */
+.box_contents_menu_left {left:0;width: 250px;z-index: 2;border-right: solid 1px #e5e5e5;} /* ! overflow:auto 삭제, z-index:2 추가 */
+.box_contents_menu_left .bt_close {width:15px;height: 52px;right:-15px;cursor: pointer} 
+
+.list_tree {top: 0;bottom: 380px;position: absolute;padding: 10px 0 10px 10px;overflow: auto} /* .box_content1 -> .list_tree */
+.list_tree .branch {width:200px;/*height:20px;*/position: relative;float: left;}
+.list_tree .branch > div {position: relative;float: left;}
+
+.list_tree .tile {float:left; width: 21px;height: 21px;border: solid 0px violet;z-index: 0;position: relative;}
+.list_tree .tile > div {width: 10px;height: 10px;position: relative;float: left;}
+.list_tree .tile > div.line_y {width:1px;height:10px;}
+.list_tree .tile > div.line_x {width:10px;height:1px;}
+.list_tree .tile > div.middle {width:1px;height:1px;}
+.list_tree .tile > div.on {background-color:#d1d1d1;}
+#branch_1_leaf, #branch_2_leaf, #branch_3_leaf {display:none}
+
+.list_tree .padding .tile {height: 5px;}
+.list_tree .padding .tile > div.line_y {width:1px;height:5px;}
+.list_tree .padding .tile > div.line_x {width:5px;height:1px;}
+.list_tree .padding .tile > div.middle {width:1px;height:1px;}
+
+.list_tree .branch > .onOff, 
+.list_tree .branch > .check {width: 21px;height: 21px;position: absolute !important;}
+.list_tree .branch > .onOff {left: 0px; z-index: 100;}
+.list_tree .branch > .onOff img {width: 80%;height: 80%; background-color: white;} 
+.list_tree .branch > .check {left: 21px;}
+.list_tree .branch > .check > input { width: 13px;height: 13px; margin-left: 0px;}
+.list_tree .branch > .title {width: 100px; height: 21px;font-size:13px}
+
+.list_tree .padding {width: 200px; height: 5px; position: relative;float: left;}
+.list_tree .padding > .tile {height: 10px;}
+
+.list_tree .branch.leaf > .check.leaf {left: 40px;}
+.list_tree .branch.leaf > .icon {width: 15px;height: 21px;margin-right:8px;}
+.list_tree .branch.leaf > .icon > img {width: 100%;}
+.list_tree .branch.leaf > .title.leaf {width: 100px; height: 21px;}
+.list_tree .branch.leaf > .title.leaf > span {width:100%;text-align: left;}
+
+#branch_1_arrow_icon,#branch_2_arrow_icon,#branch_3_arrow_icon, .list_tree input, .list_tree .title {cursor: pointer;}
+
+.box_contents_menu_left > .etc {position: absolute;width: 250px;height: 380px;bottom: 0;}
+
+.search_tab {height:40px;position:relative;}
+.search_tab .menu_tab > div {position: relative;width:125px;height:40px;float:left;background-color: #e5e5e5;color: #8e8e8e;cursor: pointer}
+.search_tab .menu_tab > div.on {background-color: #0b7abf;color: white;}
+.search_tab .menu_tab > div > div {width:100%;text-align:center}
+
+.select_box {height:170px;position:relative;}
+.select_box > div {width:220px;}
+.select_box > div > div {width:220px;height:25px;margin-bottom:10px;position:relative;}
+.select_box > div > div > select, .select_box > div > div > input {width:170px;height:25px;border-radius:5px;position:absolute;left:50px} {width:170px;height:25px;border-radius:5px;position:absolute;left:50px}
+.select_box > div > div > input {width:133px;}
+.select_box > div > div > button {width:34px;height:23px;cursor:pointer;border-radius:3px;color:white;border:none;font-size:11px;background-color:#8e8e8e;position: absolute;right:0;}
+.select_box > div > div > button > div {width:100%;height:15px}
+.select_box select { font-size: 13px; }
+
+
+.submap_tab {height:40px;position:relative;background-color:#e5e5e5;color:#8e8e8e;cursor: pointer}
+.submap_tab > div {position: relative;width:125px;height:40px;float:left;}
+.submap_tab > div > div {width:100%;text-align:center;}
+.submap_tab > div.on {background-color:#0b7abf;color:white;}
+.sub_map {height:130px;position:relative;}
+.sub_map > .sub_map1 {width: 100%;height:130px;position:relative;background-color: antiquewhite}
+.sub_map > .sub_map2 {width: 100%;height:130px;position:relative;background-color: firebrick;display: none;}
+        /* 맵 출력 */
+.box_contents_map {position: absolute;left: 250px;right: 0;z-index: 1;background-color:#d2efff} /* ! z-index:1 추가 */
+.toolbar {width:730px;height:37px;background-color:#4c4c4c;position:absolute;left:15px;top:15px;border-radius:5px;}
+.toolbar > div {width:705px;margin-left:14px}
+.toolbar > div > div {position:relative;float:left;margin-right:19px;cursor:pointer;}
+.toolbar > div > div > img {width:18px;height:18px;}
+.toolbar > .toolbar_fold {width:11px;height:37px;position: absolute;right:0px;cursor: pointer}
+
+.footer {width:100%;height:30px;background-color: #d1d1d1;position: absolute;bottom:0px;box-shadow:4px 2px 5px 2px #8d8d8d}
+.footer > div {height:20px; float:left;padding-left:20px;font-size:12px;color:#4d4d4d}
+.footer > div:nth-of-type(1) {width:300px;padding-left:50px;}
+.footer > div:nth-of-type(2) {width:400px;left:300px;border-left:solid 1px #4d4d4d;}
+.footer > div:nth-of-type(3) {left:700px;right:0;border-left:solid 1px #4d4d4d;}/* width를 조절*/
+/*.footer > div {border: solid 1px red;}*/
+.footer > div > .value_box {width:100px;height:100%;background-color:#e5e5e5;border-radius:5px;position: relative;left:60px;padding-left:10px}
+.footer > div > .value_box > div {top:11px;font-weight:bold}
+
+
+
+
+
+
+
+
+

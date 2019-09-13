@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+@RequestMapping("/user/*")
 @Controller
 public class UserController {
 
@@ -18,7 +19,7 @@ public class UserController {
 	    // 로그인 폼을 띄우는 부분
 	    @RequestMapping(value="/login",method=RequestMethod.GET)
 	    public String loginForm(){
-	        return "login/loginForm"; // /login/loginForm.jsp를 띄움.
+	        return "/user/loginForm"; // /login/loginForm.jsp를 띄움.
 	    }//end of loginForm
 	     
 	    // 로그인 처리하는 부분
