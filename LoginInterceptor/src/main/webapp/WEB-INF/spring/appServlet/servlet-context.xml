@@ -31,9 +31,7 @@
     <!-- Interceptor 설정 -->
     <interceptors>
         <interceptor>
-            <mapping path="/board/register"/>
-            <mapping path="/board/modify"/>
-            <mapping path="/board/delete"/>
+            <mapping path="/main/mainPage"/>
             <beans:ref bean="authenticationInterceptor"/>
         </interceptor>
     </interceptors>
