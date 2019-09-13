@@ -34,7 +34,7 @@ $(document).ready(function(){
 		window.location.href = '/user/login';
 		alert("접속 권한이 낮습니다. 관리자에게 문의 하세요.");
 	}else if(check == '5'){
-		
+		window.location.href = '/admin/adminMain';
 		alert("관리자 권한으로 로그인.");
 	}else{
 		window.location.href = '/user/login';

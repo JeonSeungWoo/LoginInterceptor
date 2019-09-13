@@ -17,8 +17,8 @@
                 <!-- 보조 -->
                 <div class="box_menu_sub ">
                 	<div class="gnb_wrap yCenter">
-                		<div class="id">ID : qwer1234</div>
-                		<div>로그아웃</div>
+                		<div class="id">${login.usernm} </div>
+                		<div><a href="/user/logout">로그아웃</a></div>
                 		<div>도움말</div>
                 	</div>
                 </div>
