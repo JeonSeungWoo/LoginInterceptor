@@ -67,6 +67,13 @@ public class UserController {
 
 		return "/user/loginConfirm";
 	}
+	
+	@RequestMapping(value = "/idInsertForm", method = RequestMethod.GET)
+	public String idInsertForm() throws Exception {
+
+		return "/user/idInsertForm";
+	}
+	
 
 	// 로그아웃 하는 부분
 	@RequestMapping(value = "/logout")

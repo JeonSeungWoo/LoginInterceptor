@@ -16,8 +16,6 @@
 			<div class="logo">
 				<img src="/resources/img/logo.png" alt="logo">
 			</div>
-
-
 			<form id="form">
 				<div class="login_boxline">
 					<div class="title_box">
@@ -31,11 +29,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="informationbox displayNone">
-						<div class="information xyCenter">
-							<div class="information_text yCenter ">아이디 또는 비밀번호가 다릅니다.</div>
-						</div>
-					</div>
+					
 					<div class="textbox">
 						<input type="text" placeholder="아이디" name="userid"
 							class=" xCenter" required>
@@ -52,7 +46,7 @@
 					</div>
 
 					<div class="others_button">
-						<button type="button" class="left">비밀번호변경</button>
+						<button type="button" id="idInsertBtn" class="left">회원가입</button>
 						<button type="button" class="">도움말</button>
 					</div>
 				</div>
@@ -73,6 +67,11 @@
 			
 			$("#loginBtn").on("click",function(){
 				form.attr("action","loginProcess").attr("method","POST").submit();
+			});
+			
+			
+			$("#idInsertBtn").on("click",function(){
+				form.attr("action","idInsertForm").attr("method","GET").submit();
 			});
 			
 		});
