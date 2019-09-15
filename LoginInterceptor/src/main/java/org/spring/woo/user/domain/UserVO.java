@@ -5,7 +5,7 @@ public class UserVO {
 	private String userpw;
 	private String usernm;
 	private String email;
-	private int auth = 0;
+	private int auth;
 	public String getUserid() {
 		return userid;
 	}

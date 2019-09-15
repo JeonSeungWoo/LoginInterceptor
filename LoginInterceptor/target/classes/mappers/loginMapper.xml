@@ -16,8 +16,8 @@
 	<insert id="loginCreate" parameterType="UserVO">
 
 		insert into
-		tbl_user(userid,userpw,usernm,email) values
-		(#{userid},#{userpw},#{usernm},#{email})
+		tbl_user(userid,userpw,usernm,email,auth) values
+		(#{userid},#{userpw},#{usernm},#{email},0)
 
 	</insert>
 

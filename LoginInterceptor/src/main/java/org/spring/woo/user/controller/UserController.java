@@ -92,7 +92,7 @@ public class UserController {
 		PrintWriter out = res.getWriter();
 		
 		try {
-			String parmid = (req.getParameter("userId")== null)? "" : String.valueOf(req.getParameter("userId"));
+			String parmid = (req.getParameter("userid")== null)? "" : String.valueOf(req.getParameter("userid"));
 			
   			UserVO vo = new UserVO();
   			vo.setUserid(parmid.trim());
