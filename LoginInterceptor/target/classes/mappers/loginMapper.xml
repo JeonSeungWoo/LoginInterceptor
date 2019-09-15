@@ -10,7 +10,6 @@
 		select * from tbl_user
 		where userId
 		= #{userid}
-		and userPw = #{userpw}
 	</select>
 
 	<insert id="loginCreate" parameterType="UserVO">
@@ -30,6 +29,12 @@
        set userpw = #{userpw},
            usernm = #{usernm},
            email = #{email}
+     where userid = #{userid}
+     </update>
+     
+     <update id="authUpdate" parameterType="UserVO">
+     update tbl_user
+       set auth = #{auth}
      where userid = #{userid}
      </update>
    

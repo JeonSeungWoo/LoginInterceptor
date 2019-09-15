@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.spring.woo.user.domain.UserVO;
 import org.spring.woo.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,10 @@ public class UserController {
 
 	@Inject // byType으로 자동 주입
 	UserService service;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+
 
 	// 로그인 폼을 띄우는 부분
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -38,12 +44,22 @@ public class UserController {
 			session.removeAttribute("login"); // 기존값을 제거해 준다.
 		}
 
-		// 로그인이 성공하면 UserVO 객체를 반환함.
+		//입력한 페스워드
+		String inpw = dto.getUserpw();
+		System.out.println("dto : " + inpw);
+		//입력한 페스워드 암호화
+		String encryptPassword = passwordEncoder.encode(inpw);
+		//암호화된 것을 저장.
+		dto.setUserpw(encryptPassword);
+		
+		//로그인 정보를 가져옴.
 		UserVO vo = service.login(dto);
+		
 		System.out.println("vo : " + vo);
-
-		// id 와 password가 같으면
-		if (vo != null) {
+		
+		// 등어온 pw 와 DB의 가 같으면
+		if (passwordEncoder.matches(inpw, vo.getUserpw())) {
+			System.out.println("계정정보 일치");
 			// 권한 별 설정.
 			//0은 권한이 없는 사용자.
 			if (vo.getAuth() == 0) {
@@ -58,7 +74,9 @@ public class UserController {
 				returnURL = "redirect:/user/loginConfirm?check=1";
 			}
 
-		} else { // 로그인에 실패한 경우+
+		} else { 
+			// 로그인에 실패한 경우
+			System.out.println("계정정보 불일치");
 			returnURL = "redirect:/user/loginConfirm?check=99";
 //	            returnURL ="redirect:/user/login"; // 로그인 폼으로 다시 가도록 함
 		}
