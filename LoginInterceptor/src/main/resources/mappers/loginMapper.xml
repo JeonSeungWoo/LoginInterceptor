@@ -24,6 +24,8 @@
      select count(1) from tbl_user where userid = #{userid}
    </select>
    
+   <!--관리자 페이지 만들기  -->
+   <!--유저의 내용 수정.  -->
     <update id="userUpdate" parameterType="UserVO">
      update tbl_user
        set userpw = #{userpw},
@@ -32,11 +34,51 @@
      where userid = #{userid}
      </update>
      
+     <!--유저의 권한 설정.  -->
      <update id="authUpdate" parameterType="UserVO">
      update tbl_user
        set auth = #{auth}
      where userid = #{userid}
      </update>
-   
+     
+     <!--유저정보 삭제  -->
+    <delete id="userDelete">
+       delete from tbl_user where userid =  #{userid}
+    </delete>
+    
+      <!--유저정보 리스트 -->
+	<select id="list" parameterType="Criteria" resultType="UserVO">
+		select
+		*
+		from tbl_user
+		<if test="sType != null">
+			<if test="sType eq 'title'.toString()">
+				where title like CONCAT('%', #{keyword},'%') 
+			</if>
+			<if test="sType eq 'content'.toString()">
+				where content like CONCAT('%', #{keyword},'%') 
+			</if>
+			<if test="sType eq 'userid'.toString()">
+				where userid like CONCAT('%', #{keyword},'%') 
+			</if>
+		</if>
+		order by bno desc
+		limit #{page},#{pageSize}
+	</select>
+
+	<select id="listCount" resultType="java.lang.Integer">
+		select count(1) from tbl_user
+			<if test="sType != null">
+			<if test="sType eq 'title'.toString()">
+				where title like CONCAT('%', #{keyword},'%') 
+			</if>
+			<if test="sType eq 'content'.toString()">
+				where content like CONCAT('%', #{keyword},'%') 
+			</if>
+			<if test="sType eq 'userid'.toString()">
+				where userid like CONCAT('%', #{keyword},'%') 
+			</if>
+		</if>
+	</select>
 
 </mapper> 
