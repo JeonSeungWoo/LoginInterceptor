@@ -8,9 +8,30 @@
 
 	<select id="login" resultType="UserVO">
 		select * from tbl_user
-		where userId = #{userid}
+		where userId
+		= #{userid}
 		and userPw = #{userpw}
 	</select>
 
+	<insert id="loginCreate" parameterType="UserVO">
+
+		insert into
+		tbl_user(userid,userpw,usernm,email) values
+		(#{userid},#{userpw},#{usernm},#{email})
+
+	</insert>
+
+  <select id="checkId" resultType="java.lang.Integer">
+     select count(1) from tbl_user where userid = #{userid}
+   </select>
+   
+    <update id="userUpdate" parameterType="UserVO">
+     update tbl_user
+       set userpw = #{userpw},
+           usernm = #{usernm},
+           email = #{email}
+     where userid = #{userid}
+     </update>
+   
 
 </mapper> 

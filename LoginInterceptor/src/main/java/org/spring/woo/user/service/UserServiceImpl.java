@@ -18,6 +18,18 @@ public class UserServiceImpl implements UserService{
 		return dao.login(vo);
 	}
 
+	@Override
+	public void loginCreate(UserVO vo) throws Exception {
+		dao.loginCreate(vo);
+		
+	}
+
+	@Override
+	public Integer checkId(UserVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.checkId(vo);
+	}
+
 	
 	
 }

@@ -1,6 +1,10 @@
 package org.spring.woo.user.controller;
 
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.spring.woo.user.domain.UserVO;
@@ -74,6 +78,38 @@ public class UserController {
 		return "/user/idInsertForm";
 	}
 	
+	@RequestMapping(value = "/loginCreate", method = RequestMethod.POST)
+	public String loginCreate(Model model, UserVO vo) throws Exception {
+
+		service.loginCreate(vo);
+
+		return "redirect:/user/login";
+	}
+	
+	
+	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
+	public void checkId(HttpServletRequest req, HttpServletResponse res, Model model) throws Exception {
+		PrintWriter out = res.getWriter();
+		
+		try {
+			String parmid = (req.getParameter("userId")== null)? "" : String.valueOf(req.getParameter("userId"));
+			
+  			UserVO vo = new UserVO();
+  			vo.setUserid(parmid.trim());
+  			Integer checkPoint = service.checkId(vo);
+  			
+  			out.print(checkPoint);
+  			out.flush();
+  			out.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.print("1");
+			
+		}
+
+	}
+
 
 	// 로그아웃 하는 부분
 	@RequestMapping(value = "/logout")
