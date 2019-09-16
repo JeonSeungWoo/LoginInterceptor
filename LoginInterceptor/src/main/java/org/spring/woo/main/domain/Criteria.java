@@ -22,12 +22,8 @@ public class Criteria {
 	public int getPage() {
 		return page;
 	}
+	
 	public void setPage(int page) {
-		if (page <= 0) {
-			page = 1;
-		}
-		page = ( page - 1 ) * 10;
-		
 		this.page = page;
 	}
 	public String getKeyword() {

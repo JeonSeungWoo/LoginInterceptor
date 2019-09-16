@@ -11,6 +11,8 @@ public interface AdminDAO {
 	
 	public int userListCount()throws Exception;
 	
+	public UserVO userRead(String id)throws Exception;
+	
 	//user update
 	public void userUpdate(UserVO vo)throws Exception;
 	
@@ -18,7 +20,7 @@ public interface AdminDAO {
 	public void authUpdate(UserVO vo)throws Exception;
 	
 	//user delete
-	public void userDelete(UserVO vo)throws Exception;
+	public void userDelete(String id)throws Exception;
 	
 	
 }

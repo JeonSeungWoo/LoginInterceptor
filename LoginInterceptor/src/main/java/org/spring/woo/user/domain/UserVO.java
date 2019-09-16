@@ -5,6 +5,10 @@ public class UserVO {
 	private String userpw;
 	private String usernm;
 	private String email;
+	private String insertdate;
+	private String updatedate;
+	private String authdate;
+	
 	private int auth;
 	public String getUserid() {
 		return userid;
@@ -36,9 +40,29 @@ public class UserVO {
 	public void setAuth(int auth) {
 		this.auth = auth;
 	}
+	
+	public String getInsertdate() {
+		return insertdate;
+	}
+	public void setInsertdate(String insertdate) {
+		this.insertdate = insertdate;
+	}
+	public String getUpdatedate() {
+		return updatedate;
+	}
+	public void setUpdatedate(String updatedate) {
+		this.updatedate = updatedate;
+	}
+	public String getAuthdate() {
+		return authdate;
+	}
+	public void setAuthdate(String authdate) {
+		this.authdate = authdate;
+	}
 	@Override
 	public String toString() {
-		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", usernm=" + usernm + ", email=" + email + ", auth="
+		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", usernm=" + usernm + ", email=" + email
+				+ ", insertdate=" + insertdate + ", updatedate=" + updatedate + ", authdate=" + authdate + ", auth="
 				+ auth + "]";
 	}
 

@@ -18,6 +18,7 @@ public interface AdminService {
 		public void authUpdate(UserVO vo)throws Exception;
 		
 		//user delete
-		public void userDelete(UserVO vo)throws Exception;
+		public void userDelete(String id)throws Exception;
+		public UserVO userRead(String id)throws Exception;
 
 }

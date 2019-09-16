@@ -39,9 +39,15 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public void userDelete(UserVO vo) throws Exception {
+	public void userDelete(String id) throws Exception {
 		// TODO Auto-generated method stub
-		session.delete("admin.userDelete",vo);
+		session.delete("admin.userDelete",id);
+	}
+
+	@Override
+	public UserVO userRead(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne("admin.userRead",id);
 	}
 
 

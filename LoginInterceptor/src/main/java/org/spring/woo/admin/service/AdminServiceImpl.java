@@ -17,6 +17,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public List<UserVO> userList(Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
+		
 		return dao.userList(cri);
 	}
 
@@ -39,9 +40,15 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public void userDelete(UserVO vo) throws Exception {
+	public void userDelete(String id) throws Exception {
 		// TODO Auto-generated method stub
-		dao.userDelete(vo);	
+		dao.userDelete(id);	
+	}
+
+	@Override
+	public UserVO userRead(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userRead(id);
 	}
 	
 	
