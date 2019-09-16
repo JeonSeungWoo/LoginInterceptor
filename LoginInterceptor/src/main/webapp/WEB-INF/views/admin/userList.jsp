@@ -29,18 +29,21 @@
          
  <!--검색 STA  -->
      <div align="center">
-		<form action="listPage" method="get" id="form">
+		<form action="userList" method="get" id="form">
+		
 			<input id="pageHidden" type="hidden" name="page" value="${param.page}"> 
-				<select id="sType" name="sType">
+			<select id="sType" name="sType">
 				<option value="null" ${param.sType == "null" ? "selected" : ""}>--</option>
-				<option value="title" ${param.sType == "userid" ? "selected" : ""}>아이디</option>
-				<option value="content" ${param.sType == "usernm" ? "selected" : ""}>이름</option>
-				<option value="userid" ${param.sType == "email" ? "selected" : ""}>이메일</option>
+				<option value="userid" ${param.sType == "userid" ? "selected" : ""}>아이디</option>
+				<option value="usernm" ${param.sType == "usernm" ? "selected" : ""}>이름</option>
+				<option value="email" ${param.sType == "email" ? "selected" : ""}>이메일</option>
+				<option value="auth" ${param.sType == "auth" ? "selected" : ""}>권한</option>
+				<option value="insertdate" ${param.sType == "insertdate" ? "selected" : ""}>등록날짜</option>
+				<option value="authdate" ${param.sType == "authdate" ? "selected" : ""}>권한수정 날짜</option>
+				<option value="updatedate" ${param.sType == "updatedate" ? "selected" : ""}>수정 날짜</option>
 			</select>
              <input type="text" name="keyword" id="keyword" value="${param.keyword}">
              <button id="sBtn">검색 </button>
-            
-             <button id="inPageBtn">이미지 등록하기</button>
 		</form>
 </div>
 <!--검색 End  -->
@@ -61,15 +64,28 @@
 
 
 <tbody>
- <c:forEach items="${list}" var="list">
+ <c:forEach items="${list}" var="list" varStatus="status">
     
     <tr>
-      <td><a href="/admin/userRead?page=${param.page}&id=${list.userid}">
-     ${list.userid}
-    </a></td>
+      <td class="td${status.index}" data-value="${list.userid}">
+      <a href="/admin/userRead?userid=${list.userid}">
+        ${list.userid}
+      </a></td>
       <td> ${list.usernm}</td>
       <td>${list.email}</td>
-      <td>${list.auth}</td>
+      <td>
+      
+      <select id="auth" class="auth" name="auth" data-value="${status.index}">
+      <option value="0" ${list.auth == "0" ? "selected" : ""}>0</option>
+      <option value="1" ${list.auth == "1" ? "selected" : ""}>1</option>
+      <option value="2" ${list.auth == "2" ? "selected" : ""}>2</option>
+      <option value="3" ${list.auth == "3" ? "selected" : ""}>3</option>
+      <option value="4" ${list.auth == "4" ? "selected" : ""}>4</option>
+      <option value="5" ${list.auth == "5" ? "selected" : ""}>5</option>
+      </select>
+     
+      
+      </td>
       <td>${list.insertdate}</td>
       <td>${list.authdate}</td>
       <td>${list.updatedate}</td>
@@ -120,16 +136,39 @@
 <script src="/resources/js/bootstrap/npm.js"></script>
 <script src="/resources/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
+
+
 $(document).ready(function(){
+	
+	
+
+	
+ 	$(".auth").change(function(){
+		var val = $(this).val();
+		var valSt = $(this).attr("data-value");
+		var idtx = ".td"+valSt;
+		var id = $(idtx).text();
+		alert(val);
+		alert(id);
+		
+		
+	});
+
+	
 	$("#sBtn").on("click",function(event){
 		event.preventDefault();
 		$("#pageHidden").val(1);
 		$("#form").submit();
 	});
 	
-
+	
+	
 	
 });
+
+	
+	
+	
 
 
 </script>

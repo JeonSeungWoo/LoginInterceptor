@@ -13,7 +13,7 @@
 		set userpw = #{userpw},
 		usernm = #{usernm},
 		email = #{email},
-		updatedate = #{updatedate}
+		updatedate = to_char(now(), 'YYYY-MM-DD HH24:MI:SS')
 		where userid = #{userid}
 	</update>
 
@@ -21,7 +21,7 @@
 	<update id="authUpdate" parameterType="UserVO">
 		update tbl_user
 		set auth = #{auth},
-		authdate = #{authdate}
+		authdate = to_char(now(), 'YYYY-MM-DD HH24:MI:SS')
 		where userid = #{userid}
 	</update>
 
@@ -44,14 +44,26 @@
 		*
 		from tbl_user
 		<if test="sType != null">
-			<if test="sType eq 'title'.toString()">
-				where title like CONCAT('%', #{keyword},'%')
-			</if>
-			<if test="sType eq 'content'.toString()">
-				where content like CONCAT('%', #{keyword},'%')
-			</if>
 			<if test="sType eq 'userid'.toString()">
-				where userid like CONCAT('%', #{keyword},'%')
+				where userid like  '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'usernm'.toString()">
+				where usernm like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'email'.toString()">
+				where email like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'auth'.toString()">
+				where auth like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'insertdate'.toString()">
+				where insertdate like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'authdate'.toString()">
+				where authdate like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'updatedate'.toString()">
+				where updatedate like '%'||#{keyword}||'%'
 			</if>
 		</if>
 		order by insertdate desc
@@ -62,14 +74,26 @@
 	<select id="userListCount" resultType="java.lang.Integer">
 		select count(1) from tbl_user
 		<if test="sType != null">
-			<if test="sType eq 'userid'.toString()">
-				where userid like CONCAT('%', #{keyword},'%')
+				<if test="sType eq 'userid'.toString()">
+				where userid like  '%'||#{keyword}||'%'
 			</if>
 			<if test="sType eq 'usernm'.toString()">
-				where usernm like CONCAT('%', #{keyword},'%')
+				where usernm like '%'||#{keyword}||'%'
 			</if>
 			<if test="sType eq 'email'.toString()">
-				where email like CONCAT('%', #{keyword},'%')
+				where email like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'auth'.toString()">
+				where auth like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'insertdate'.toString()">
+				where insertdate like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'authdate'.toString()">
+				where authdate like '%'||#{keyword}||'%'
+			</if>
+			<if test="sType eq 'updatedate'.toString()">
+				where updatedate like '%'||#{keyword}||'%'
 			</if>
 		</if>
 	</select>

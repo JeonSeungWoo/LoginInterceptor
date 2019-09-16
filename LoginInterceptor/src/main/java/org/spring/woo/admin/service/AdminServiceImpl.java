@@ -7,12 +7,17 @@ import javax.inject.Inject;
 import org.spring.woo.admin.dao.AdminDAO;
 import org.spring.woo.main.domain.Criteria;
 import org.spring.woo.user.domain.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AdminServiceImpl implements AdminService{
 	@Inject
 	private AdminDAO dao;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 
 	@Override
 	public List<UserVO> userList(Criteria cri) throws Exception {
@@ -29,7 +34,9 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public void userUpdate(UserVO vo) throws Exception {
-		// TODO Auto-generated method stub
+		//¾ÏÈ£È­
+		String encryptPassword = passwordEncoder.encode(vo.getUserpw());
+		vo.setUserpw(encryptPassword);
 		dao.userUpdate(vo);
 	}
 

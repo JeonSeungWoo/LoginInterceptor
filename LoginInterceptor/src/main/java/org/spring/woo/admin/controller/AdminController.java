@@ -23,23 +23,17 @@ public class AdminController {
 	
 	// 유저의 List를 보여준는 페이지
 	 @RequestMapping(value="/userList",method=RequestMethod.GET)
-	    public String userList(Model model, Criteria cri,@RequestParam("page")int page)
+	    public String userList(Model model, Criteria cri,int page)
 	       throws Exception{
-		    System.out.println("page : " + page);
 		    cri.setPage(page);
-		    System.out.println(cri);
 			model.addAttribute("list", service.userList(cri));
-			System.out.println(service.userList(cri));
-		    System.out.println("l : " + page);
 			model.addAttribute("Paging", new Paging(page, service.userListCount()));
-	        System.out.println("l : " + service.userListCount());
 			return "/admin/userList";
 	 }
 	 @RequestMapping(value = "/userRead", method = RequestMethod.GET)
-		public void userRead(Model model, @RequestParam("id") String id) throws Exception {
-
-			model.addAttribute("vo", service.userRead(id));
-
+		public String userRead(Model model,@RequestParam("userid")String userid) throws Exception {
+		 model.addAttribute("read",service.userRead(userid));
+          return "/admin/userRead";
 		}
 
 		@RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
@@ -61,7 +55,13 @@ public class AdminController {
 		}
 
 	
+		@RequestMapping(value = "/authUpdate", method = RequestMethod.POST)
+		public void authUpdate(Model model, UserVO vo) throws Exception {
 
+			service.authUpdate(vo);;
+
+
+		}
 		
 
 }
