@@ -46,5 +46,6 @@
 <context:component-scan base-package="org.spring.woo.test.dao" />
 <context:component-scan base-package="org.spring.woo.user.dao" />
 <context:component-scan base-package="org.spring.woo.user.service" />
-
+<context:component-scan base-package="org.spring.woo.admin.dao" />
+<context:component-scan base-package="org.spring.woo.admin.service" />
 </beans>

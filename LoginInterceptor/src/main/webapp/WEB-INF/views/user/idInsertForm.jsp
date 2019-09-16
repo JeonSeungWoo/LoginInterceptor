@@ -158,7 +158,7 @@
 			
 			
 			$("#cancelBtn").on("click",function(){
-				
+				 location.href = "/user/login";
 			});
 			
 			

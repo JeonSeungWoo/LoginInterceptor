@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminController {
 	
-	 @RequestMapping(value="/adminMain",method=RequestMethod.GET)
+	// 유저의 List를 보여준는 페이지
+	 @RequestMapping(value="/userList",method=RequestMethod.GET)
 	    public String loginForm(){
-	        return "/admin/adminMain";
-	    }
+	        return "/admin/userList";
+	 }
+	 
+	 
+	 
 		
 
 }
