@@ -100,7 +100,6 @@
 				 var email  = $("#email").val(); 
 				 
 				//유효성 검사 
-				
 				if(usernm == "" || userid == ""  || userpw == "" || email == ""){
 					alert("데이터를 입력해주세요");
 			    }else if(userpw.length<8 ||userpw.length>16){
@@ -129,8 +128,8 @@
 			});
 			//회원가입 끝
 			
-			//idCheck 시작
-			
+	
+	//idCheck 시작		
 	 //id check 
 	 $("#checkId").on("click",function(){
 		var userid  = $("#userid").val(); 
