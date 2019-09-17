@@ -21,7 +21,8 @@
 				<img src="/resources/img/logo.png" alt="logo">
 			</div>
 
-
+      <input type="hidden" id="adminUserid" value="${login.userid}">
+         <input type="hidden" id="adminAuth" value="${login.auth}">
 			<form id="form">
 				<div class="pw_boxline">
 					<div class="pw_title_box">
@@ -86,6 +87,13 @@
         $(document).ready(function() {
             Set_Event();
             var form =$("#form");
+            
+            var adminAuth = $("#adminAuth").val();
+      	  var userid = $("#adminUserid").val();
+      	  if(adminAuth != '5'){
+      		  alert("권한이 없습니다.");
+      		  location.href = "/user/logout";
+      	  }
             
 			//회원가입 시작
 			$("#updateBtn").on("click",function(){

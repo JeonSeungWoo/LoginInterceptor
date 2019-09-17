@@ -59,13 +59,13 @@ public class UserController {
 		if(vo !=null) {
 			// 등어온 pw 와 DB의 가 같으면
 			if (passwordEncoder.matches(inpw, vo.getUserpw())) {
-				System.out.println("계정정보 일치");
+				
 				// 권한 별 설정.
 				//0은 권한이 없는 사용자.
-				if (vo.getAuth() == 0) {
+				if (vo.getAuth().equals("0")) {
 					returnURL = "redirect:/user/loginConfirm?check=0";
 			    //5는 admin
-				} else if (vo.getAuth() == 5) {
+				} else if (vo.getAuth().equals("5")) {
 					session.setAttribute("login", vo);
 					returnURL = "redirect:/user/loginConfirm?check=5";
 				} else {
@@ -76,7 +76,6 @@ public class UserController {
 
 			} else { 
 				// 로그인에 실패한 경우
-				System.out.println("계정정보 불일치");
 				returnURL = "redirect:/user/loginConfirm?check=99";
 			}
 

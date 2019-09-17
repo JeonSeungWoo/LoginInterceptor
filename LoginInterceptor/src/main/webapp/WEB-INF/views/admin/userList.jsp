@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/css/bootstrap/bootstrap-theme.css">
@@ -26,12 +25,13 @@
         <div class="page-header">
             <h1>유저 리스트</h1>
         </div>
-         
+         <input type="hidden" id="adminUserid" value="${login.userid}">
+         <input type="hidden" id="adminAuth" value="${login.auth}">
  <!--검색 STA  -->
      <div align="center">
-		<form action="userList" method="get" id="form">
-		
+		<form id="form">
 			<input id="pageHidden" type="hidden" name="page" value="${param.page}"> 
+			
 			<select id="sType" name="sType">
 				<option value="null" ${param.sType == "null" ? "selected" : ""}>--</option>
 				<option value="userid" ${param.sType == "userid" ? "selected" : ""}>아이디</option>
@@ -48,6 +48,7 @@
 </div>
 <!--검색 End  -->
 <!--리스트 시작  -->
+<form id="formList">
 <div class="container">
 <table class="table table-striped">
   <thead class="thead-dark">
@@ -67,7 +68,9 @@
  <c:forEach items="${list}" var="list" varStatus="status">
     
     <tr>
-      <td class="td${status.index}" data-value="${list.userid}">
+      
+      <td>
+      <input type="hidden" id="listId${status.index}" value="${list.userid}">
       <a href="/admin/userRead?userid=${list.userid}">
         ${list.userid}
       </a></td>
@@ -96,6 +99,7 @@
   </tbody>
   </table>
 </div>
+</form>
 <!--리스트 끝  -->
 
 <!--페이징 시작  -->
@@ -139,29 +143,43 @@
 
 
 $(document).ready(function(){
+	  var adminAuth = $("#adminAuth").val();
+	  var userid = $("#adminUserid").val();
+	  if(adminAuth != '5'){
+		  alert("권한이 없습니다.");
+		  location.href = "/user/logout";
+	  }
+	  
 	
+	  var formList = $("#formList");
 	
 
 	
  	$(".auth").change(function(){
-		var val = $(this).val();
-		var valSt = $(this).attr("data-value");
-		var idtx = ".td"+valSt;
-		var id = $(idtx).text();
-		alert(val);
-		alert(id);
+		var auth = $(this).val();
+		var authCount = $(this).attr("data-value");
+		var idClass = "#listId"+authCount;
+		var id = $(idClass).val();
+		var page = $("#pageHidden").val();
+		formList.attr("action","authUpdate?userid="+id+"&auth=" + auth+ "&page=" +page).attr("method","POST").submit();
 		
-		
+	     
 	});
 
 	
-	$("#sBtn").on("click",function(event){
-		event.preventDefault();
-		$("#pageHidden").val(1);
-		$("#form").submit();
+	$("#sBtn").on("click",function(/* event */){
+		/* event.preventDefault();
+		$("#pageHidden").val(1); */
+		var keyword = $("#keyword").val();
+		var sType = $("#sType").val();
+		alert(keyword);
+		$("#form").attr("action","userList?page="+1+
+				"&keyword="+encodeURI(keyword)+
+				"&sType="+sType).attr("method","GET").submit();
 	});
 	
-	
+
+
 	
 	
 });

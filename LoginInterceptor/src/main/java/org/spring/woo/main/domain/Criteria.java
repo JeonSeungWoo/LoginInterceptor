@@ -7,10 +7,8 @@ public class Criteria {
 	private String keyword;
 	private String sType;
 	
-	//userId를가지고 List를 불러줄때 사용하기 위한 객체
 	private String userId;
 	
-	//userId get,set
 	public String getUserId() {
 		return userId;
 	}
