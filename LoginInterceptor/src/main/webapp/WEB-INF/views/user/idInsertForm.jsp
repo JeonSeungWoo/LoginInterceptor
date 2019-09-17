@@ -22,8 +22,9 @@
 			</div>
 
 
-			<form id="form">
+			
 				<div class="pw_boxline">
+				<form id="form">
 					<div class="pw_title_box">
 						<div class="help_icon">
 							<img src="/resources/img/help.png" alt="도움말">
@@ -67,6 +68,8 @@
 					<div class="pw_linebox">
 						<div class="pw_line xyCenter"></div>
 					</div>
+					
+			</form>		
 					<div class="pw_buttonbox">
 						<div class="pw_button xyCenter">
 							<button type="submit" id="insertBtn" class="change">회원가입</button>
@@ -74,7 +77,7 @@
 						</div>
 					</div>
 				</div>
-			</form>
+			
 
 
 		</div>
