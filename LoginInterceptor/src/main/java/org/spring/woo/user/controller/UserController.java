@@ -100,7 +100,6 @@ public class UserController {
 	
 	@RequestMapping(value = "/loginCreate", method = RequestMethod.POST)
 	public String loginCreate(Model model, UserVO vo) throws Exception {
-         System.out.println("두번도나?");
 		service.loginCreate(vo);
 
 		return "redirect:/user/login";

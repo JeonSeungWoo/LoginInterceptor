@@ -47,7 +47,7 @@
 				</div>
 					<div class="textbox">
 						<input type="text" placeholder="아이디" name="userid" id="userid"
-							value="${read.userid}" class=" xCenter" required>
+							value="${read.userid}" class=" xCenter"  readonly required >
 					</div>
 				    
 				<div class="textbox">
