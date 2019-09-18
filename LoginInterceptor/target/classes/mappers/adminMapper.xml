@@ -71,7 +71,7 @@
 		#{pageSize}
 	</select>
 
-	<select id="userListCount" resultType="java.lang.Integer">
+	<select id="userListCount" resultType="java.lang.Integer" parameterType="Criteria">
 		select count(1) from tbl_user
 		<if test="sType != null">
 				<if test="sType eq 'userid'.toString()">
@@ -96,6 +96,8 @@
 				where updatedate like '%'||#{keyword}||'%'
 			</if>
 		</if>
+		LIMIT #{pageSize} OFFSET (#{page} - 1) *
+		#{pageSize}
 	</select>
 
 </mapper> 

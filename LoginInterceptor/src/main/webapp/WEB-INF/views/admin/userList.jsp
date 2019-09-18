@@ -105,18 +105,21 @@
 <!--페이징 시작  -->
 <p class="paging">
 		<c:if test="${Paging.prev}">
-			<a  class="page_btn btn_prev" href="userList?page=${(Paging.startPage - 1)}">이전</a>
+			<a  class="page_btn btn_prev" href="userList?page=${(Paging.startPage - 1)}&sType=${cri.sType}&keyword=${cri.keyword}">
+			
+			이전</a>
 		</c:if>
 
 		<c:forEach begin="${Paging.startPage}" end="${Paging.endPage}"   var="idx">
            
            <c:out value="${Paging.page == idx ? '':''}"/>
-           <a  class="pagingNum" href="userList?page=${idx}">${idx}</a>
+           <a  class="pagingNum" href="userList?page=${idx}&sType=${cri.sType}&keyword=${cri.keyword}">${idx}</a>
           			
 		</c:forEach>
 
 		<c:if test="${Paging.next && Paging.endPage > 0}">
-			<a class="page_btn btn_next" href="userList?page=${Paging.endPage +1}">다음</a>
+			<a class="page_btn btn_next" href="userList?page=${Paging.endPage +1}&sType=${cri.sType}&keyword=${cri.keyword}">
+			다음</a>
 		</c:if>
 
 </p>
@@ -160,8 +163,16 @@ $(document).ready(function(){
 		var authCount = $(this).attr("data-value");
 		var idClass = "#listId"+authCount;
 		var id = $(idClass).val();
+		
+		//권한을 업데이트 후 해당 페이지로 이동.
 		var page = $("#pageHidden").val();
-		formList.attr("action","authUpdate?userid="+id+"&auth=" + auth+ "&page=" +page).attr("method","POST").submit();
+		var sType = $("#sType").val();
+		var keyword = $("#keyword").val();
+		
+		
+		formList.attr("action","authUpdate?userid="+id+"&auth=" + auth + "&page=" +page
+				+ "&sType=" +sType+ "&keyword=" +keyword
+		).attr("method","POST").submit();
 		
 	     
 	});
@@ -172,7 +183,6 @@ $(document).ready(function(){
 		$("#pageHidden").val(1); */
 		var keyword = $("#keyword").val();
 		var sType = $("#sType").val();
-		alert(keyword);
 		$("#form").attr("action","userList?page="+1+
 				"&keyword="+encodeURI(keyword)+
 				"&sType="+sType).attr("method","GET").submit();

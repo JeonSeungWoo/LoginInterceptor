@@ -25,9 +25,10 @@ public class AdminController {
 	@RequestMapping(value = "/userList", method = RequestMethod.GET,produces="text/plain;charset=UTF-8")
 	public String userList(Model model, Criteria cri, int page) throws Exception {
 
-		
+		model.addAttribute("cri",cri);
 		model.addAttribute("list", service.userList(cri));
 		model.addAttribute("Paging", new Paging(page, service.userListCount()));
+		
 		return "/admin/userList";
 	}
 
@@ -60,14 +61,18 @@ public class AdminController {
 	@RequestMapping(value = "/authUpdate", method = RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	public String authUpdate(Model model, UserVO vo,
 		@RequestParam("userid") String userid,
-		@RequestParam("auth") String auth,
-		@RequestParam("page") String page
+		@RequestParam("auth") int auth,
+		@RequestParam("page") String page,
+		@RequestParam("keyword") String keyword,
+		@RequestParam("sType") String sType
 	) throws Exception {
-		vo.setAuth(auth);
+
+		vo.setAuth(Integer.toString(auth));
 		vo.setUserid(userid);
 		
 		service.authUpdate(vo);
-		return "redirect:/admin/userList?page="+ page;
+		return "redirect:/admin/userList?page="+ page+ 
+				"&sType="+ sType + "&keyword=" + keyword;
 	}
 
 }
