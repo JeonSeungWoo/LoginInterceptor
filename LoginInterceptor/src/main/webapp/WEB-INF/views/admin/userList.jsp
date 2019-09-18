@@ -60,6 +60,7 @@
       <th scope="col">등록날짜</th>
       <th scope="col">권한 수정날짜</th>
       <th scope="col">수정 날짜</th>
+      <th scope="col">버튼</th>
     </tr>
   </thead>
 
@@ -78,7 +79,7 @@
       <td>${list.email}</td>
       <td>
       
-      <select id="auth" class="auth" name="auth" data-value="${status.index}">
+      <select id="auth${status.index}" class="auth" name="auth" data-value="${status.index}">
       <option value="0" ${list.auth == "0" ? "selected" : ""}>0</option>
       <option value="1" ${list.auth == "1" ? "selected" : ""}>1</option>
       <option value="2" ${list.auth == "2" ? "selected" : ""}>2</option>
@@ -92,6 +93,7 @@
       <td>${list.insertdate}</td>
       <td>${list.authdate}</td>
       <td>${list.updatedate}</td>
+      <td><button type="button" class="authUpdateBtn" value="${status.index}" >수정</button></td>
     </tr>
     
  
@@ -156,8 +158,34 @@ $(document).ready(function(){
 	
 	  var formList = $("#formList");
 	
-
-	
+//버튼 설정.
+	  $(".authUpdateBtn").on("click",function(){
+		 var authUpdateIndex = $(this).val();
+		
+		 var idClass = "#listId"+authUpdateIndex;
+		 var id = $(idClass).val();
+		 
+		 var authClass = "#auth"+authUpdateIndex;
+		 var auth = $(authClass).val();
+		//권한을 업데이트 후 해당 페이지로 이동.
+			
+	        var page = $("#pageHidden").val();
+			var sType = $("#sType").val();
+			var keyword = $("#keyword").val();
+			if (confirm("수정 하시겠습니까?") == true){    //확인
+				formList.attr("action","authUpdate?userid="+id+"&auth=" + auth + "&page=" +page
+				+ "&sType=" +sType+ "&keyword=" +keyword
+				).attr("method","POST").submit();
+			}else{ 
+				$("#form").attr("action","userList?page="+page+
+				"&keyword="+keyword+
+				"&sType="+sType).attr("method","GET").submit();
+			}
+	  });
+	  
+	  
+	//권한 change설정.
+	/* 	
  	$(".auth").change(function(){
 		var auth = $(this).val();
 		var authCount = $(this).attr("data-value");
@@ -165,17 +193,24 @@ $(document).ready(function(){
 		var id = $(idClass).val();
 		
 		//권한을 업데이트 후 해당 페이지로 이동.
-		var page = $("#pageHidden").val();
+	
+        var page = $("#pageHidden").val();
 		var sType = $("#sType").val();
 		var keyword = $("#keyword").val();
-		
-		
-		formList.attr("action","authUpdate?userid="+id+"&auth=" + auth + "&page=" +page
-				+ "&sType=" +sType+ "&keyword=" +keyword
-		).attr("method","POST").submit();
-		
-	     
-	});
+		if (confirm("수정 하시겠습니까?") == true){    //확인
+			formList.attr("action","authUpdate?userid="+id+"&auth=" + auth + "&page=" +page
+			+ "&sType=" +sType+ "&keyword=" +keyword
+			).attr("method","POST").submit();
+		}else{ 
+			$("#form").attr("action","userList?page="+page+
+			"&keyword="+keyword+
+			"&sType="+sType).attr("method","GET").submit();
+		}
+
+	  }); 
+*/
+
+
 
 	
 	$("#sBtn").on("click",function(/* event */){
