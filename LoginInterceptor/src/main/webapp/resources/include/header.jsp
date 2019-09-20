@@ -20,16 +20,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-<!--       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+     <li class="nav-item active">
+        <a class="nav-link" href="/main/mainPage" target="_blank">지도열기 <span class="sr-only">(current)</span></a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="#">사용자 정보</a>
+        <a class="nav-link" href="/user/logout">로그아웃</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">미지정</a>
-      </li>
-      -->
+
     </ul>
   </div>
 </nav>
