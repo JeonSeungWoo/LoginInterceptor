@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<title>포천시 하수도 관리</title>
+<title>in</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS -->
@@ -25,7 +25,7 @@
 							</div>
 							<div class="padding"></div>
 							<div class="login_title_text">
-								<div class="yCenter">하수도 시설 관리</div>
+								<div class="yCenter">in</div>
 							</div>
 						</div>
 					</div>
